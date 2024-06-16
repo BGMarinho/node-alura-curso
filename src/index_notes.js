@@ -1,4 +1,4 @@
-const fs = require("fs"); // fs significa "file system", biblioteca que permite interagir com o sistema de arquivos do computador.
+const fs = require('fs'); // fs significa "file system", biblioteca que permite interagir com o sistema de arquivos do computador.
 
 const caminhoArquivo = process.argv; // "argv" significa "argument vector"
 /** saída:
@@ -19,14 +19,14 @@ const link = caminhoArquivo[2];
  * do comando no terminal.
  */
 
-fs.readFile(link, "utf-8", (error, fileData) => {
+fs.readFile(link, 'utf-8', (error, fileData) => {
   if (error) {
     /**
      * Quando damos return num bloco de código, a execução termina. Sendo
      * assim, a mensagem de erro no console sairá mais limpa, sem outros
      * erros acumulados.
      */
-    console.log("qual é o erro?", error);
+    console.log('qual é o erro?', error);
     /**
      * Esse erro é um objeto que tem algumas propriedades e que podem ser
      * usadas para formar uma mensagem de erro mais completa e personalizada
@@ -44,7 +44,7 @@ fs.readFile(link, "utf-8", (error, fileData) => {
 });
 
 function extraiParagrafos(texto) {
-  return texto.toLowerCase().split("\n");
+  return texto.toLowerCase().split('\n');
 }
 
 function contaPalavras(texto) {
@@ -66,11 +66,11 @@ function limpaPalavras(palavra) {
    * O replace() é um método de strings, utilizado para indicar qual trecho de uma string deve
    * ser substituído - primeiro argumento/parâmetro - por outro dado - segundo argumento/parâmetro.
    */
-  return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+  return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
 }
 
 function verificaPalavrasDuplicadas(text) {
-  const listaPalavras = text.split(" ");
+  const listaPalavras = text.split(' ');
   const resultado = {};
   /**
    * O forEach() é um método de arrays que consiste em iterar sobre todos os itens de um array

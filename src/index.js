@@ -1,9 +1,9 @@
-const fs = require("fs");
+const fs = require('fs');
 
 const caminhoArquivo = process.argv;
 const link = caminhoArquivo[2];
 
-fs.readFile(link, "utf-8", (error, fileData) => {
+fs.readFile(link, 'utf-8', (error, fileData) => {
   /**
    * O try funciona "monitorando" o código disposto dentro de seu
    * bloco. Caso haja algum erro, este erro será mandado para o
@@ -18,18 +18,19 @@ fs.readFile(link, "utf-8", (error, fileData) => {
      * entanto, se não for lançado, o erro que é parâmetro do bloco
      * catch, será outro objeto diferente, será um erro "genérico".
      * Tanto o throw quanto o return param a execução do bloco de
-     * código!
+     * código! O throw pode ser usado para lançar qualquer tipo de
+     * dado mas não é recomendado que seja usado fora de um caso
+     * como o aqui exemplificado.
      */
     contaPalavras(fileData);
   } catch (error) {
-    if (error.code === "ENOENT") console.log("erro que esperava");
-    else console.log("outro erro");
-    // o que fazer com o erro?
+    if (error.code === 'ENOENT') console.log('erro que esperava');
+    else console.log('outro erro');
   }
 });
 
 function extraiParagrafos(texto) {
-  return texto.toLowerCase().split("\n");
+  return texto.toLowerCase().split('\n');
 }
 
 function contaPalavras(texto) {
@@ -42,11 +43,11 @@ function contaPalavras(texto) {
 }
 
 function limpaPalavras(palavra) {
-  return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+  return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
 }
 
 function verificaPalavrasDuplicadas(text) {
-  const listaPalavras = text.split(" ");
+  const listaPalavras = text.split(' ');
   const resultado = {};
   listaPalavras.forEach((palavra) => {
     const palavraLimpa = limpaPalavras(palavra);
