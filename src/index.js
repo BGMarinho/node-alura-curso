@@ -8,7 +8,7 @@ export function contaPalavras(texto) {
     if (!paragrafo) return [];
     return verificaPalavrasDuplicadas(paragrafo);
   });
-  console.log(listaParagrafos);
+  return listaParagrafos;
 }
 
 function limpaPalavras(palavra) {
