@@ -2,7 +2,7 @@ function extraiParagrafos(texto) {
   return texto.toLowerCase().split('\n');
 }
 
-function contaPalavras(texto) {
+export function contaPalavras(texto) {
   const paragrafos = extraiParagrafos(texto);
   const listaParagrafos = paragrafos.flatMap((paragrafo) => {
     if (!paragrafo) return [];
