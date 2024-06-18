@@ -1,4 +1,4 @@
-const fs = require("fs"); // fs significa "file system", biblioteca que permite interagir com o sistema de arquivos do computador.
+const fs = require('fs'); // fs significa "file system", biblioteca que permite interagir com o sistema de arquivos do computador.
 
 const caminhoArquivo = process.argv; // "argv" significa "argument vector"
 /** saída:
@@ -19,32 +19,52 @@ const link = caminhoArquivo[2];
  * do comando no terminal.
  */
 
-fs.readFile(link, "utf-8", (error, fileData) => {
-  if (error) {
-    /**
-     * Quando damos return num bloco de código, a execução termina. Sendo
-     * assim, a mensagem de erro no console sairá mais limpa, sem outros
-     * erros acumulados.
-     */
-    console.log("qual é o erro?", error);
+fs.readFile(link, 'utf-8', (error, fileData) => {
+  /**
+   * O try funciona "monitorando" o código disposto dentro de seu
+   * bloco. Caso haja algum erro, este erro será mandado para o
+   * bloco catch, responsável por tratar erros.
+   */
+  try {
+    if (error) throw error;
     /**
      * Esse erro é um objeto que tem algumas propriedades e que podem ser
      * usadas para formar uma mensagem de erro mais completa e personalizada
      * para cada caso.
      */
-    return;
-  }
+    /**
+     * Esse erro que é passado como parâmetro do if é o mesmo erro
+     * que é "lançado" pelo throw. Quando ele é lançado pelo throw,
+     * se torna o erro passado como parâmetro do bloco catch. No
+     * entanto, se não for lançado, o erro que é parâmetro do bloco
+     * catch, será outro objeto diferente, será um erro "genérico".
+     * Tanto o throw quanto o return param a execução do bloco de
+     * código! O throw pode ser usado para lançar qualquer tipo de
+     * dado mas não é recomendado que seja usado fora de um caso
+     * como o aqui exemplificado. Usamos throw (por exemplo, throw
+     * new Error()) quando queremos que o erro seja “lançado”, o
+     * que normalmente resulta na interrupção do programa e no erro
+     * sendo exibido no terminal junto com o stack trace. Não é em
+     * todo caso que queremos que aconteça a interrupção do programa,
+     * mas ainda queremos “capturar” o erro.
+     */
+    /**
+     * Quando damos return num bloco de código, a execução termina. Sendo
+     * assim, a mensagem de erro no console sairá mais limpa, sem outros
+     * erros acumulados.
+     */
+    contaPalavras(fileData);
+  } catch (error) {}
   /**
    * O método readFile possui três parâmetros: o caminho do arquivo que se quer ler, o tipo
    * de "encodamento" dos caracteres desse texto e uma função callback anônima (arrow ou
    * comum) que, por sua vez, possui dois parâmetros, sendo um para erro e outro para o
    * conteúdo do arquivo a ser lido.
    */
-  contaPalavras(fileData);
 });
 
 function extraiParagrafos(texto) {
-  return texto.toLowerCase().split("\n");
+  return texto.toLowerCase().split('\n');
 }
 
 function contaPalavras(texto) {
@@ -66,11 +86,11 @@ function limpaPalavras(palavra) {
    * O replace() é um método de strings, utilizado para indicar qual trecho de uma string deve
    * ser substituído - primeiro argumento/parâmetro - por outro dado - segundo argumento/parâmetro.
    */
-  return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+  return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
 }
 
 function verificaPalavrasDuplicadas(text) {
-  const listaPalavras = text.split(" ");
+  const listaPalavras = text.split(' ');
   const resultado = {};
   /**
    * O forEach() é um método de arrays que consiste em iterar sobre todos os itens de um array
