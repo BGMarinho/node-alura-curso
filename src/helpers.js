@@ -24,6 +24,9 @@ function montaSaidaArquivo(listaPalavras) {
     textoFinal += `Palavras duplicadas no parágrafo ${
       indice + 1
     }: ${duplicadas} \n`;
+    // alt + z faz o código ir pra linha debaixo sem abrir
+    // mais uma linha! É a mesma linha, só que expandida
+    // para baixo.
   });
 
   return textoFinal;
