@@ -1,1 +1,14 @@
-[{"httpsdevelopermozillaorgptbrdocslearngettingstartedwiththewebhowthewebworks\r":1},{"\r":1},{"como":1,"a":1,"web":1,"funciona\r":1},{"\r":1},{"como":1,"a":1,"web":1,"funciona":1,"oferece":1,"uma":2,"visão":1,"simplificada":1,"do":1,"que":1,"acontece":1,"quando":1,"você":1,"vê":1,"página":1,"em":1,"um":1,"navegador":1,"no":1,"seu":1,"computador":1,"ou":1,"telefone\r":1},{"\r":1},{"essa":1,"teoria":1,"não":1,"é":1,"essencial":1,"para":1,"escrever":1,"códigos":1,"em":3,"curto":1,"prazo":1,"mas":1,"pouco":1,"tempo":1,"você":1,"vai":1,"se":1,"beneficiar":1,"ao":1,"entender":1,"o":1,"que":1,"está":1,"acontecendo":1,"segundo":1,"plano\r":1},{"clientes":1,"e":1,"servidores\r":1},{"\r":1},{"computadores":1,"conectados":1,"à":1,"web":1,"são":1,"chamados":1,"clientes":1,"e":1,"servidores":1,"um":1,"diagrama":1,"simplificado":1,"de":1,"como":1,"eles":1,"interagem":1,"pode":1,"ter":1,"essa":1,"aparência\r":1},{"\r":1},{"clientes":1,"são":1,"os":1,"típicos":1,"dispositivos":2,"conectados":1,"à":3,"internet":1,"dos":1,"usuários":1,"da":1,"web":2,"por":1,"exemplo":1,"seu":3,"computador":1,"conectado":2,"ao":1,"wifi":1,"ou":2,"telefone":1,"sua":1,"rede":1,"móvel":1,"e":1,"programas":1,"de":1,"acesso":1,"disponíveis":1,"nesses":1,"geralmente":1,"um":1,"navegador":1,"como":1,"firefox":1,"chrome\r":1},{"\r":1},{"servidores":1,"são":1,"computadores":1,"que":1,"armazenam":1,"páginas":1,"sites":1,"ou":1,"aplicativos":1,"quando":1,"o":1,"dispositivo":1,"de":1,"um":1,"cliente":2,"quer":1,"acessar":1,"uma":2,"página":1,"cópia":1,"dela":1,"é":1,"baixada":1,"do":3,"servidor":1,"para":2,"a":1,"máquina":1,"ser":1,"apresentada":1,"no":1,"navegador":1,"web":1,"usuário\r":1}]
+Palavras duplicadas no parágrafo 1:  
+Palavras duplicadas no parágrafo 2:  
+Palavras duplicadas no parágrafo 3:  
+Palavras duplicadas no parágrafo 4:  
+Palavras duplicadas no parágrafo 5: uma 
+Palavras duplicadas no parágrafo 6:  
+Palavras duplicadas no parágrafo 7: em 
+Palavras duplicadas no parágrafo 8:  
+Palavras duplicadas no parágrafo 9:  
+Palavras duplicadas no parágrafo 10:  
+Palavras duplicadas no parágrafo 11:  
+Palavras duplicadas no parágrafo 12: dispositivos, à, web, seu, conectado, ou 
+Palavras duplicadas no parágrafo 13:  
+Palavras duplicadas no parágrafo 14: cliente, uma, do, para 
