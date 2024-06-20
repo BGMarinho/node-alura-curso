@@ -9,6 +9,7 @@ import trataErros from './errors/funcoesErro.js';
 import { contaPalavras } from './index.js';
 import { montaSaidaArquivo } from './helpers.js';
 import { Command } from 'commander';
+import chalk from 'chalk';
 
 const program = new Command();
 // const caminhoArquivo = process.argv;
@@ -25,7 +26,9 @@ program
   .action((options) => {
     const { texto, destino } = options;
     if (!texto || !destino) {
-      console.error('Erro: favor inserir caminho de origem e destino');
+      console.error(
+        chalk.red('Erro: favor inserir caminho de origem e destino'),
+      );
       program.help();
       return;
     }
@@ -35,7 +38,7 @@ program
 
     try {
       processaArquivo(caminhoTexto, caminhoDestino);
-      console.log('Texto processado com sucesso!');
+      console.log(chalk.green('Texto processado com sucesso!'));
     } catch (erro) {
       console.log('Ocorreu um erro no processamento: ', erro);
     }
@@ -126,3 +129,11 @@ async function criaESalvaArquivos(listaPalavras, endereco) {
 //  // sucesso na promessa
 
 // Foi instalada a biblioteca commander para ajudar a organizar os comandos em uma linha de comando do terminal.
+
+// Quando um método possui em seus argumentos uma função callback, esta só será executada depois que o método, em si, retornar para ela os valores que ela utilizará como parâmetro.
+
+// Grande parte das ferramentas de CLI mais estruturadas têm por padrão um comando --help (node --help, por exemplo), que mostra uma lista de todos os comandos possíveis da ferramenta. O mesmo vale para o padrão -v ou --version
+
+// Chalk: biblioteca instalada que permite que as mensagens no terminal, as saídas e tudo mais, possuam cores específicas. Isso ajuda a identificar que tipo de mensagem é aquela que está aparecendo no terminal e guia o usuário. O uso da biblioteca se baseia em importá-la para o arquivo em que ocorrerão as manipulações via terminal e utilizar os métodos de acordo com as cores que se quer aplicar aos console logs.
+
+// O NPM é um repositório de código específico, e significa Node Package Manager (ou repositório de pacotes do Node). Ou seja, todas as bibliotecas/frameworks instalados via npm, são hospedados e baixados deste repositório. Além disso, o npm é instalado juntamente com o Node, por isso é possível utilizar diretamente o comando npm no terminal. Todos os pacotes/bibliotecas baixados vão para uma pasta chamada node_modules.
