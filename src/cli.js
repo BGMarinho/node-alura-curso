@@ -4,12 +4,16 @@
 // Aqui, eu dei uma instrução no terminal para criar um arquivo package.json, que é um arquivo "manifest" que possui todas as informações mais pertinentes do pojeto, como versão do node utilizada, bibliotecas instaladas e outras coisas desse tipo Dentro desse arquivo, após a chave "main", eu adicionei uma outra chave chamada "type" com valor "module. É essa a adição dessa configuração que me permite usar as palavras import e export, sendo este um recurso recentemente implementado no Node.
 
 import fs from 'fs';
+import path from 'path'; // é uma biblioteca nativa do Node, o que significa que não precisaremos instalar via npm. O Node utiliza ela para fazer o gerenciamento de caminhos relativos e absolutos de todos os arquivos referenciados dentro do programa. A biblioteca commander precisa resolver os arquivos que são mandados internamente antes de utilizar os caminhos.
 import trataErros from './errors/funcoesErro.js';
 import { contaPalavras } from './index.js';
 import { montaSaidaArquivo } from './helpers.js';
 import { Command } from 'commander';
 
 const program = new Command();
+// const caminhoArquivo = process.argv;
+// const link = caminhoArquivo[2];
+// const endereco = caminhoArquivo[3];
 
 program
   .version('0.0.1')
@@ -25,21 +29,33 @@ program
       program.help();
       return;
     }
+
+    const caminhoTexto = path.resolve(texto);
+    const caminhoDestino = path.resolve(destino);
+
+    try {
+      processaArquivo(caminhoTexto, caminhoDestino);
+      console.log('Texto processado com sucesso!');
+    } catch (erro) {
+      console.log('Ocorreu um erro no processamento: ', erro);
+    }
   });
 
-const caminhoArquivo = process.argv;
-const link = caminhoArquivo[2];
-const endereco = caminhoArquivo[3];
+program.parse();
+// A partir de agora, o comando a ser digitado no terminal será da seguinte forma: node src/cli.js -t arquivos/texto-web.txt -d ./resultados . Dessa forma, não faz diferença a ordem com que eles serão escritos no terminal, pois eles estão identificados por suas respectivas flags.
 
-fs.readFile(link, 'utf-8', (error, fileData) => {
-  try {
-    if (error) throw error;
-    const resultado = contaPalavras(fileData);
-    criaESalvaArquivos(resultado, endereco);
-  } catch (error) {
-    trataErros(error);
-  }
-});
+function processaArquivo(texto, destino) {
+  // Essa função fs.readFile também é uma função assíncrona, ainda que não seja chamada a partir do objeto promises. a diferença dela para a presente em writeFile é que ela lida com código assíncrono a partir do recebimento de uma função callback em sua lista de parâmetro. No entanto, essa função pode ser utilizada de forma síncrona, utilizando a sintaxe fs.readFileSync, mas este uso é restrito a contextos bem específicos.
+  fs.readFile(texto, 'utf-8', (error, fileData) => {
+    try {
+      if (error) throw error;
+      const resultado = contaPalavras(fileData);
+      criaESalvaArquivos(resultado, destino);
+    } catch (error) {
+      trataErros(error);
+    }
+  });
+}
 
 async function criaESalvaArquivos(listaPalavras, endereco) {
   const arquivoNovo = `${endereco}/resultado.txt`;
