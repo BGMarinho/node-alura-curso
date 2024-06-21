@@ -137,3 +137,8 @@ async function criaESalvaArquivos(listaPalavras, endereco) {
 // Chalk: biblioteca instalada que permite que as mensagens no terminal, as saídas e tudo mais, possuam cores específicas. Isso ajuda a identificar que tipo de mensagem é aquela que está aparecendo no terminal e guia o usuário. O uso da biblioteca se baseia em importá-la para o arquivo em que ocorrerão as manipulações via terminal e utilizar os métodos de acordo com as cores que se quer aplicar aos console logs.
 
 // O NPM é um repositório de código específico, e significa Node Package Manager (ou repositório de pacotes do Node). Ou seja, todas as bibliotecas/frameworks instalados via npm, são hospedados e baixados deste repositório. Além disso, o npm é instalado juntamente com o Node, por isso é possível utilizar diretamente o comando npm no terminal. Todos os pacotes/bibliotecas baixados vão para uma pasta chamada node_modules.
+
+// A primeira coisa que fazemos ao trabalhar com um projeto em Node.js do zero é criar um arquivo package.json utilizando o comando npm init
+
+// Versionamento semântico:
+// Esse conceito se baseia em três formas de publicar uma versão de um software. A alteração de número da primeira dezena são chamadas Major, e referem a grandes alterações com potencial de quebrar eventuais implementações de versões anteriores. Já a segunda, tem o nome de Minor e se caracteriza por novas implementações relevantes mas que não tem potencial de quebra em softwares que utilizem versões anteriores. Por fim, temos a Patch, que consiste em pequenas alterações, como resolução de bugs, melhoramento de performance ou alterações similares que não introduzem necessiamente coisas novas.
